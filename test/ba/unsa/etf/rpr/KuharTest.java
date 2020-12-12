@@ -137,48 +137,6 @@ class KuharTest {
         assertEquals(2, recepti.size());
     }
 
-    @Test
-    public void sviSastojciTest() {
-        Kuhar kuhar = new Kuhar();
-        Set<Sastojak> sastojci = kuhar.sviSastojci();
-        assertEquals(0, sastojci.size());
-
-        kuhar = pomocnaKuhar();
-
-        sastojci = kuhar.sviSastojci();
-        String rezultat = "";
-        for (Sastojak s : sastojci)
-            rezultat += s + "\n";
-        String ocekivani = "1 dl ulja\n2 dl jajeta\n3 dl mlijeka\n10 g šećera\n100 g luka\n200 g brašna\n300 g pilećeg mesa\n400 g graška\n";
-        assertEquals(rezultat, ocekivani);
-    }
-
-    @Test
-    public void sviSastojciTest2() {
-        Kuhar kuhar = new Kuhar();
-        kuhar.dodajRecept(new Recept("R1"));
-        kuhar.dodajRecept(new Recept("R2"));
-
-        Recept r = new Recept("Jelo 1");
-        r.dodajSastojak(new PraskastiSastojak("sastojak", 100));
-        kuhar.dodajRecept(r);
-        r = new Recept("Jelo 2");
-        r.dodajSastojak(new PraskastiSastojak("sastojak", 100));
-        r.dodajSastojak(new PraskastiSastojak("sastojak", 100)); // Sada je 200
-        kuhar.dodajRecept(r);
-        r = new Recept("Jelo 3");
-        r.dodajSastojak(new PraskastiSastojak("sastojak", 50));
-        r.dodajSastojak(new PraskastiSastojak("sastojak", 30));
-        r.dodajSastojak(new PraskastiSastojak("sastojak", 20)); // Sada je 100
-        kuhar.dodajRecept(r);
-
-        Set<Sastojak> sastojci = sastojci = kuhar.sviSastojci();
-        String rezultat = "";
-        for (Sastojak s : sastojci)
-            rezultat += s + "\n";
-        String ocekivani = "100 g sastojak\n200 g sastojak\n";
-        assertEquals(rezultat, ocekivani);
-    }
 
     @Test
     public void filtrirajTest() {
@@ -194,4 +152,5 @@ class KuharTest {
         assertEquals(1, recepti.size());
         assertEquals("Uštipci", recepti.get(0).getNazivJela());
     }
+
 }

@@ -20,4 +20,5 @@ class SastojakTest {
         assertEquals(6, ulje.getKolicina());
         assertEquals("6 dl ulja", ulje.toString());
     }
+
 }
